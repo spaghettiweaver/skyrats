@@ -282,7 +282,7 @@
 
 			update_pull_movespeed()
 
-		set_pull_offsets(M, GRAB_PASSIVE) //The offsets are supposed to depend on how aggressive the grab state is, but outside of martial arts nobody here can initiate an aggressive grab, so I hardcode it as passive for now
+		set_pull_offsets(M, src.grab_state) //The offsets are supposed to depend on how aggressive the grab state is, but outside of martial arts nobody here can initiate an aggressive grab, so I hardcode it as passive for now
 
 /mob/living/proc/set_pull_offsets(mob/living/M, grab_state = GRAB_PASSIVE)
 	if(M.buckled)
