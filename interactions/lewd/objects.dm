@@ -11,7 +11,7 @@
 
 	var/hole = CUM_TARGET_VAGINA
 
-	var/random_color = TRUE
+//	var/random_color = TRUE
 	var/static/list/dildo_colors = list(
 		"purple" = "#800080",
 		"darkviolet" = "#9400D3",
@@ -45,7 +45,7 @@
 	var/message = ""
 	if(istype(M, /mob/living/carbon/human) && user.zone_selected == "groin" && M.is_bottomless())
 		if(M.client && M.client.prefs)
-			if(M.client.prefs.wasteland_toggles & VERB_CONSENT)
+			if(M.client.prefs.cit_toggles & VERB_CONSENT)
 				if(hole == CUM_TARGET_VAGINA && M.has_vagina())
 					message = (user == M) ? pick("fucks their own pussy with \the [src]","shoves the [src] into their pussy", "jams the [src] into their pussy") : pick("fucks [M] right in the pussy with \the [src]", "jams \the [src] right into [M]'s pussy")
 				else if(hole == CUM_TARGET_ANUS && M.has_anus())
@@ -124,7 +124,7 @@
 	var/message = ""
 	if(istype(M, /mob/living/carbon/human) && M.is_bottomless())
 		if(M.client && M.client.prefs)
-			if(M.client.prefs.wasteland_toggles & VERB_CONSENT)
+			if(M.client.prefs.cit_toggles & VERB_CONSENT)
 				if(hole == CUM_TARGET_VAGINA && M.has_vagina())
 					message = (user == M) ? pick("fucks their own pussy with \the [src]","shoves the [src] into their pussy", "jams the [src] into their pussy") : pick("fucks [M] right in the pussy with \the [src]", "jams \the [src] right into [M]'s pussy")
 				else if(hole == CUM_TARGET_ANUS && M.has_anus())

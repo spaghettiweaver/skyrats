@@ -72,7 +72,7 @@
 
 		if(require_ooc_consent)
 			if(user.client && user.client.prefs)
-				if(user.client.prefs.wasteland_toggles & VERB_CONSENT)
+				if(user.client.prefs.cit_toggles & VERB_CONSENT)
 					return TRUE
 				else
 					return FALSE
@@ -123,7 +123,7 @@
 
 		if(require_ooc_consent)
 			if(target.client && target.client.prefs)
-				if(target.client.prefs.wasteland_toggles & VERB_CONSENT)
+				if(target.client.prefs.cit_toggles & VERB_CONSENT)
 					return TRUE
 				else
 					return FALSE

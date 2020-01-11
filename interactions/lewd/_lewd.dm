@@ -18,17 +18,31 @@
   --------------------------------------------------
 */
 //I'm sorry, lewd should not have mob procs such as life() and such in it.
-/*
+
+
 /mob/living/proc/has_penis()
-	return has_penis
+	if(getorganslot("penis"))//slot shared with ovipositor
+		if(istype(getorganslot("penis"), /obj/item/organ/genital/penis))
+			return TRUE
+	return FALSE
+
+/mob/living/proc/has_balls()
+	if(getorganslot("balls"))
+		if(istype(getorganslot("balls"), /obj/item/organ/genital/testicles))
+			return TRUE
+	return FALSE
 
 /mob/living/proc/has_vagina()
-	return has_vagina
+	if(getorganslot("vagina"))
+		return TRUE
+	return FALSE
 
 /mob/living/proc/has_breasts()
-	return has_breasts
-*/
-/mob/living/proc/has_anus()
+	if(getorganslot("breasts"))
+		return TRUE
+	return FALSE
+
+/mob/living/proc/has_anus() //maybe make this not hardcoded for weird people who dont have bums. >inb4 how do i shit
 	return TRUE
 
 /mob/living/proc/has_hand()
@@ -146,7 +160,7 @@
 	multiorgasms += 1
 
 	if(multiorgasms == 1)
-		add_logs(partner, src, "came on")
+		log_combat(partner, src, "came on") //log those erps >:D
 
 	if(multiorgasms > (sexual_potency * 0.34)) //AAAAA, WE DONT WANT NEGATIVES HERE, RE
 		refactory_period = rand(250, 400) - sexual_potency//sex cooldown
@@ -327,7 +341,7 @@
 						"bites down on \the [src]'s cock and doesn't let go until it rips off!",
 						"bites \the [src]'s cock off completely in the struggle!",
 					)
-					src.has_penis = FALSE
+//					src.has_penis = FALSE //disabled pending NEW irreparable cock damage code.
 		else
 			message = pick(
 				"grinds against \the [partner]'s face.",
@@ -444,7 +458,7 @@
 			if(prob(1) && istype(partner, /mob/living))
 				var/mob/living/H = partner
 				H.adjustOxyLoss(5)
-				add_logs(src, partner, "attacked", src) //cmon, it's 1 in 100. how can it spam logs
+				log_combat(src, partner, "'attacked';)", src) //cmon, it's 1 in 100. how can it spam logs
 		if(partner.a_intent == INTENT_HARM)
 			src.adjustBruteLoss(5)
 			retaliation_message = pick(

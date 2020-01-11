@@ -1,6 +1,6 @@
 /datum/species
 	var/has_genitals = TRUE //if this goes to 2, blame coders
-	var/has_anus = TRUE //same with this
+	var/has_anus = TRUE //same with this -- but what if it wasnt static though??
 //	var/has_breasts = FALSE
 /*
 /datum/species/proc/has_penis(mob/living/carbon/human/H)
