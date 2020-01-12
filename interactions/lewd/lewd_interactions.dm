@@ -81,11 +81,11 @@
 
 /datum/interaction/lewd/evaluate_target(mob/living/carbon/human/user, mob/living/carbon/human/target, silent = TRUE)
 	if(..(user, target, silent))
-		if(target_not_tired && target.refactory_period)
+/*		if(target_not_tired && target.refactory_period)
 			if(!silent) //same with this
 				to_chat(user, "<span class='warning'>They're still exhausted from the last time. They need to wait [DisplayTimeText(target.refactory_period * 10, TRUE)] until you can do that!</span>")
 			return FALSE
-
+*/
 		if(require_target_bottomless && !target.is_bottomless())
 			if(!silent)
 				to_chat(user, "<span class = 'warning'>Their pants are in the way.</span>")
